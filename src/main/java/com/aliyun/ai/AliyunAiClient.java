@@ -9,11 +9,11 @@ import java.util.Scanner;
 public class AliyunAiClient {
 
     // 从环境变量读取 API Key（需要在运行配置中设置 ALIYUN_API_KEY）
-    private static final String API_KEY = System.getenv("ALIYUN_API_KEY");
+    private static final String API_KEY = System.getenv("API_KEY");
 
     public static void main(String[] args) throws IOException {
         if (API_KEY == null || API_KEY.isEmpty()) {
-            System.err.println("错误: 请设置环境变量 ALIYUN_API_KEY");
+            System.err.println("错误: 请设置环境变量 API_KEY");
             return;
         }
 
@@ -55,8 +55,19 @@ public class AliyunAiClient {
 
             String responseBody = response.body().string();
             JsonNode root = mapper.readTree(responseBody);
-            String aiReply = root.path("output").path("choices").path(0).path("message").path("content").asText();
-            System.out.println("AI回答: " + aiReply);
+
+            String aiReply = null;
+            if (root.has("output")) {
+                aiReply = root.path("output").path("choices").path(0).path("message").path("content").asText();
+            } else if (root.has("choices")) {
+                aiReply = root.path("choices").path(0).path("message").path("content").asText();
+            }
+
+            if (aiReply != null && !aiReply.isEmpty()) {
+                System.out.println("AI回答: " + aiReply);
+            } else {
+                System.out.println("无法解析AI回答，原始响应: " + responseBody);
+            }
         }
     }
 }
