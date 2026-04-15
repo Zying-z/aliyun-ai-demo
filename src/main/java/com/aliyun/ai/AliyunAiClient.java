@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class AliyunAiClient {
 
-    // 从环境变量读取 API Key（需要在运行配置中设置 ALIYUN_API_KEY）
+    // 从环境变量读取 API Key（需要在运行配置中设置 API_KEY）
     private static final String API_KEY = System.getenv("API_KEY");
 
     public static void main(String[] args) throws IOException {

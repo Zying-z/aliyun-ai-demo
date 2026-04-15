@@ -80,7 +80,6 @@ public class AliyunAiClientStream {
                         System.out.flush();
                     }
                 } catch (Exception e) {
-                    // 忽略解析错误
                 }
             }
         }
