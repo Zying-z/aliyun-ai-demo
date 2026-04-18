@@ -98,7 +98,7 @@ public class MultiTurnChat {
             String responseBody = response.body().string();
             JsonNode root = mapper.readTree(responseBody);
 
-            // ✅ 修复：使用正确的解析路径（阿里云百炼格式）
+
             String aiReply = root.path("choices").path(0).path("message").path("content").asText();
 
             if (aiReply == null || aiReply.isEmpty()) {
