@@ -22,9 +22,9 @@ public class AliyunAiClient {
         String userMessage = scanner.nextLine();
 
         OkHttpClient client = new OkHttpClient.Builder()
-                .connectTimeout(30, java.util.concurrent.TimeUnit.SECONDS)
-                .readTimeout(60, java.util.concurrent.TimeUnit.SECONDS)
-                .writeTimeout(30, java.util.concurrent.TimeUnit.SECONDS)
+                .connectTimeout(5, java.util.concurrent.TimeUnit.SECONDS)
+                .readTimeout(5, java.util.concurrent.TimeUnit.SECONDS)
+                .writeTimeout(5, java.util.concurrent.TimeUnit.SECONDS)
                 .build();
 
         ObjectMapper mapper = new ObjectMapper();
