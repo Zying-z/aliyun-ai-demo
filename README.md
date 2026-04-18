@@ -21,12 +21,14 @@
 
 ## 项目结构
 src/main/java/com/aliyun/ai/
-
 ├── AliyunAiClient.java // 同步调用
-
-├── AliyunAiClientStream.java // 流式调用
-
-└── EmbeddingDemo.java // 文本向量化
+├── AliyunAiClientStream.java // 流式输出（SSE）
+├── EmbeddingDemo.java // 文本向量化
+├── MultiTurnChat.java // 多轮对话
+├── CosineSimilarityDemo.java // 余弦相似度计算
+├── EmbeddingSimilarityDemo.java // 文本相似度对比
+├── VectorSearchDemo.java // 向量检索
+└── RagDemo.java // RAG 完整流程
 
 ## 效果演示
 
@@ -38,3 +40,23 @@ src/main/java/com/aliyun/ai/
 
 向量化
 ![img.png](img.png)
+
+
+多轮对话
+![img_3.png](img_3.png)
+
+
+余弦相似度计算
+![img_4.png](img_4.png)
+
+
+文本相似度对比
+![img_5.png](img_5.png)
+
+
+向量检索
+![img_7.png](img_7.png)
+
+
+完整流程
+![img_6.png](img_6.png)
